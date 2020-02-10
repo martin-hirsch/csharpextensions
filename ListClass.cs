@@ -1,5 +1,9 @@
 public abstract class ListClass<T>
 {
+    public int Count => Items.Count;
+
+    public List<T> Items { get; protected set; }
+    
     protected ListClass(IEnumerable<T> items)
     {
         Items = items.ToList();
@@ -9,10 +13,6 @@ public abstract class ListClass<T>
     {
         Items = new List<T>();
     }
-
-    public int Count => Items.Count;
-
-    public IList<T> Items { get; protected set; }
 
     public void AddRange(IEnumerable<T> other)
     {
