@@ -1,0 +1,9 @@
+public abstract class ValueClass<T>
+{
+    protected T Value { get; set; }
+
+    public override string ToString()
+    {
+        return Value.ToString();
+    }
+}
