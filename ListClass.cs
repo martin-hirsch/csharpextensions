@@ -1,9 +1,8 @@
+using System.Collections.Generic;
+using System.Linq;
+
 public abstract class ListClass<T>
 {
-    public int Count => Items.Count;
-
-    public List<T> Items { get; protected set; }
-    
     protected ListClass(IEnumerable<T> items)
     {
         Items = items.ToList();
@@ -12,6 +11,15 @@ public abstract class ListClass<T>
     protected ListClass()
     {
         Items = new List<T>();
+    }
+
+    public int Count => Items.Count;
+
+    public IList<T> Items { get; protected set; }
+
+    public void Add(T other)
+    {
+        Items.Add(other);
     }
 
     public void AddRange(IEnumerable<T> other)
