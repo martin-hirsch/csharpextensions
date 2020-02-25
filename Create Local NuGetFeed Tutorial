@@ -1,0 +1,8 @@
+Right Click on Project
+Properties
+In the opended window click on Package
+Check NuGet-Packaged generation
+
+Add PostBuildEvent
+// "$(ProjectPath)" is a static variable.
+dotnet pack "$(ProjectPath)" --no-build --include-source --include-symbols --output "dotnet pack "$(ProjectPath)" --no-build --include-source --include-symbols --output "<path where you are hosting your local nuget repo>"
