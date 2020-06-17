@@ -9,9 +9,9 @@ public static (List<T> firstHalf, List<T> secondHalf, bool divisionByTwoIsPossib
             }
             else if (me.Count % 2 != 0)
             {
-                var r = me.Count / 2d;
-                var r2 = (int)Math.Round(r, MidpointRounding.ToEven);
-                firstHalf.AddRange(me.GetRange(0, r2));
+                var unevenHalfSize = me.Count / 2d;
+                var evenHalfSize = (int)Math.Round(r, MidpointRounding.ToEven);
+                firstHalf.AddRange(me.GetRange(0, evenHalfSize));
                 secondHalf.AddRange(me.Where(x => !firstHalf.Contains(x)));
             }
             else
