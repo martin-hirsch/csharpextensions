@@ -25,3 +25,8 @@ public static (List<T> firstHalf, List<T> secondHalf, bool divisionByTwoIsPossib
             
   return (firstHalf, secondHalf, divisionByTwoIsPossible);
 }
+
+public static List<T> AsList<T>(this T element)
+    {
+        return new List<T> { element };
+    }
