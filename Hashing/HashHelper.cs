@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
     public static class HashHelper
     {
-        public static int GetSequenceHash<TItem>(this IEnumerable<TItem> other)
+        public static int GetSequenceHashCode<TItem>(this IEnumerable<TItem> other)
         {
             const int B = 378551;
             var a = 63689;
