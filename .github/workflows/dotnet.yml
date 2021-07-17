@@ -34,6 +34,6 @@ jobs:
       run: dotnet pack Shared/Shared.Core/Shared.Core.csproj --configuration Release /p:Version=${VERSION}
       
     - name: Push
-      run: dotnet nuget push Shared.Core.${VERSION}.nupkg --source https://nuget.pkg.github.com/martin-hirsch/index.json --api-key ${GITHUB_TOKEN}
+      run: dotnet nuget push Shared/Shared/Shared.Core/bin/Release/Shared.Core.${VERSION}.nupkg --source https://nuget.pkg.github.com/martin-hirsch/index.json --api-key ${GITHUB_TOKEN}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
