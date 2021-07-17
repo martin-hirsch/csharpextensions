@@ -1,0 +1,22 @@
+﻿################################################################################
+# Diese .gitignore-Datei wurde von Microsoft(R) Visual Studio automatisch erstellt.
+################################################################################
+
+/.vs
+/Shared/Shared.AutofacIntegration/bin/Debug/netstandard2.0
+/Shared/Shared.AutofacIntegration/obj/Debug/netstandard2.0
+/Shared/Shared.AutofacIntegration/obj
+/Shared/Shared.AutofacIntegration.Tests/bin/Debug/netcoreapp3.1
+/Shared/Shared.AutofacIntegration.Tests/obj/Debug/netcoreapp3.1
+/Shared/Shared.AutofacIntegration.Tests/obj
+/Shared/Shared.Core/bin/Debug/netstandard2.0
+/Shared/Shared.Core/obj/Debug/netstandard2.0
+/Shared/Shared.Core/obj
+/Shared/Shared.Core.Tests/bin/Debug/netcoreapp3.1
+/Shared/Shared.Core.Tests/obj
+/Shared/Shared.Events/bin/Debug
+/Shared/Shared.Events/obj
+/Shared/Shared.Events.Api/bin/Debug
+/Shared/Shared.Events.Api/obj
+/Shared/Shared.Events.Tests/bin/Debug/netcoreapp3.1
+/Shared/Shared.Events.Tests/obj

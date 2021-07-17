@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Misc\DerivedClassEnumerator.cs" />
+    <Compile Remove="Misc\ThrowIfNullHelper.cs" />
+    <Compile Remove="Misc\ValueClass.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Misc\DerivedClassEnumerator.cs" />
+    <None Include="Misc\ThrowIfNullHelper.cs" />
+    <None Include="Misc\ValueClass.cs" />
+  </ItemGroup>
+
+</Project>
