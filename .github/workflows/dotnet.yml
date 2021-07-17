@@ -28,7 +28,7 @@ jobs:
       run: dotnet test --no-build --verbosity normal
       
     - name: Set VERSION variable
-      run: echo "VERSION='0.0.0.1'" >> $GITHUB_ENV
+      run: echo "VERSION=0.0.0.1" >> $GITHUB_ENV
       
     - name: Pack
       run: dotnet pack --configuration Release /p:Version=${VERSION}
