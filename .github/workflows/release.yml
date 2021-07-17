@@ -15,8 +15,8 @@ jobs:
     - name: Extract release notes
       run: |
         git log --pretty=format:'%d %s' ${GITHUB_REF} | perl -pe 's| \(.*tag: v(\d+.\d+.\d+(-preview\d{3})?)(, .*?)*\)|\n## \1\n|g' > RELEASE-NOTES
-    - name: Set VERSION variable from tag
-      run: echo "VERSION=${git rev-list --count HEAD}" >> $GITHUB_ENV
+    - name: Set VERSION variable
+      run: echo "VERSION=${git rev-list --count}" >> $GITHUB_ENV
     - name: Build
       run: dotnet build --configuration Release /p:Version=${VERSION}
     - name: Test
