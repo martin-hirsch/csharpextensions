@@ -23,11 +23,7 @@ namespace Shared.Core.Console
                         {
                             connectionEstablished = true;
                         }
-
-                        ;
                     }
-
-                    ;
                 }
                 catch
                 {
