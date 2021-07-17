@@ -17,9 +17,23 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
+
     - name: Restore dependencies
       run: dotnet restore
+      
     - name: Build
       run: dotnet build --no-restore
+      
     - name: Test
       run: dotnet test --no-build --verbosity normal
+      
+    - name: Set VERSION variable
+      run: echo "VERSION=${GITHUB_SHA}" >> $GITHUB_ENV
+      
+    - name: Pack
+      run: dotnet pack --configuration Release /p:Version=0.0.0.1
+      
+    - name: Push
+      run: dotnet nuget push Shared.Core.${VERSION}.nupkg --source https://nuget.pkg.github.com/martin-hirsch/index.json --api-key ${GITHUB_TOKEN}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
