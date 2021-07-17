@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.AutofacIntegration.T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.AutofacIntegration", "Shared\Shared.AutofacIntegration\Shared.AutofacIntegration.csproj", "{6C4142A6-42E9-44A2-B54D-6B5A900932FB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{28685393-14F0-4CEB-A0B4-3834D5CA86A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -3,6 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>default</LangVersion>
+    <PackageId>Shared.Core</PackageId>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/martin-hirsch/Shared</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
