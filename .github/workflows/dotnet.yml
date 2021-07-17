@@ -30,8 +30,8 @@ jobs:
     - name: Set VERSION variable
       run: echo "VERSION=0.0.0.1" >> $GITHUB_ENV
       
-    - name: Pack
-      run: dotnet pack ~/Shared.Core/Shared.Core.csproj --configuration Release /p:Version=${VERSION}
+    - name: Build NuGet-Package
+      run: dotnet pack ~/Shared.Core.csproj --configuration Release /p:Version=${VERSION}
       
     - name: Push
       run: dotnet nuget push Shared.Core.${VERSION}.nupkg --source https://nuget.pkg.github.com/martin-hirsch/index.json --api-key ${GITHUB_TOKEN}
