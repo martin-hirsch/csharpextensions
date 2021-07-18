@@ -31,15 +31,17 @@ jobs:
     - run: echo "VERSION=0.0.0.1" >> $GITHUB_ENV
       
     - name: Build NuGet-Packages
-    - run: dotnet pack Shared/Shared.Core/Shared.Core.csproj --configuration Release /p:Version=${VERSION}
-    - run: dotnet pack Shared/Shared.AutofacIntegration/Shared.AutofacIntegration.csproj --configuration Release /p:Version=${VERSION}
-    - run: dotnet pack Shared/Shared.Events/Shared.Events.csproj --configuration Release /p:Version=${VERSION}           
-    - run: dotnet pack Shared/Shared.Events.Api/Shared.Events.Api.csproj --configuration Release /p:Version=${VERSION}           
+    - run: | 
+        dotnet pack Shared/Shared.Core/Shared.Core.csproj --configuration Release /p:Version=${VERSION};
+        dotnet pack Shared/Shared.AutofacIntegration/Shared.AutofacIntegration.csproj --configuration Release /p:Version=${VERSION};
+        dotnet pack Shared/Shared.Events/Shared.Events.csproj --configuration Release /p:Version=${VERSION};
+        dotnet pack Shared/Shared.Events.Api/Shared.Events.Api.csproj --configuration Release /p:Version=${VERSION};
       
     - name: Push NuGet-Packages
-    - run: dotnet nuget push Shared/Shared.Core/bin/Release/Shared.Core.${VERSION}.nupkg --source https://nuget.pkg.github.com/martin-hirsch/index.json --api-key ${GITHUB_TOKEN}
-    - run: dotnet nuget push Shared/Shared.AutofacIntegration/bin/Release/Shared.AutofacIntegration.${VERSION}.nupkg --source https://nuget.pkg.github.com/martin-hirsch/index.json --api-key ${GITHUB_TOKEN}
-    - run: dotnet nuget push Shared/Shared.Events/bin/Release/Shared.Events.${VERSION}.nupkg --source https://nuget.pkg.github.com/martin-hirsch/index.json --api-key ${GITHUB_TOKEN}
-    - run: dotnet nuget push Shared/Shared.Events.Api/bin/Release/Shared.Events.Api.${VERSION}.nupkg --source https://nuget.pkg.github.com/martin-hirsch/index.json --api-key ${GITHUB_TOKEN}
+    - run: |
+        dotnet nuget push Shared/Shared.Core/bin/Release/Shared.Core.${VERSION}.nupkg --source https://nuget.pkg.github.com/martin-hirsch/index.json --api-key ${GITHUB_TOKEN};
+        dotnet nuget push Shared/Shared.AutofacIntegration/bin/Release/Shared.AutofacIntegration.${VERSION}.nupkg --source https://nuget.pkg.github.com/martin-hirsch/index.json --api-key ${GITHUB_TOKEN};
+        dotnet nuget push Shared/Shared.Events/bin/Release/Shared.Events.${VERSION}.nupkg --source https://nuget.pkg.github.com/martin-hirsch/index.json --api-key ${GITHUB_TOKEN};
+        dotnet nuget push Shared/Shared.Events.Api/bin/Release/Shared.Events.Api.${VERSION}.nupkg --source https://nuget.pkg.github.com/martin-hirsch/index.json --api-key ${GITHUB_TOKEN};
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
