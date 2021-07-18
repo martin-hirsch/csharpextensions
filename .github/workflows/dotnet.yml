@@ -19,26 +19,26 @@ jobs:
         dotnet-version: 5.0.x
 
     - name: Restore Dependencies
-    - run: dotnet restore
+      run: dotnet restore
       
     - name: Build Solution
-    - run: dotnet build --no-restore
+      run: dotnet build --no-restore
       
     - name: Run Tests
-    - run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal
       
     - name: Set VERSION variable
-    - run: echo "VERSION=0.0.0.1" >> $GITHUB_ENV
+      run: echo "VERSION=0.0.0.1" >> $GITHUB_ENV
       
     - name: Build NuGet-Packages
-    - run: | 
+      run: | 
         dotnet pack Shared/Shared.Core/Shared.Core.csproj --configuration Release /p:Version=${VERSION};
         dotnet pack Shared/Shared.AutofacIntegration/Shared.AutofacIntegration.csproj --configuration Release /p:Version=${VERSION};
         dotnet pack Shared/Shared.Events/Shared.Events.csproj --configuration Release /p:Version=${VERSION};
         dotnet pack Shared/Shared.Events.Api/Shared.Events.Api.csproj --configuration Release /p:Version=${VERSION};
       
     - name: Push NuGet-Packages
-    - run: |
+      run: |
         dotnet nuget push Shared/Shared.Core/bin/Release/Shared.Core.${VERSION}.nupkg --source https://nuget.pkg.github.com/martin-hirsch/index.json --api-key ${GITHUB_TOKEN};
         dotnet nuget push Shared/Shared.AutofacIntegration/bin/Release/Shared.AutofacIntegration.${VERSION}.nupkg --source https://nuget.pkg.github.com/martin-hirsch/index.json --api-key ${GITHUB_TOKEN};
         dotnet nuget push Shared/Shared.Events/bin/Release/Shared.Events.${VERSION}.nupkg --source https://nuget.pkg.github.com/martin-hirsch/index.json --api-key ${GITHUB_TOKEN};
